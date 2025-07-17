@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/mcp"
+  to = "/.netlify/functions/mcp-server"
+  status = 200
+
+[[redirects]]
+  from = "/mcp/*"
+  to = "/.netlify/functions/mcp-server"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia"
+  to = "/.netlify/functions/fakturownia-server"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/*"
+  to = "/.netlify/functions/fakturownia-server"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  functions = "netlify/functions"

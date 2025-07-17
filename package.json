@@ -1,0 +1,28 @@
+{
+  "name": "woocommerce-mcp-server",
+  "version": "1.0.0",
+  "description": "WooCommerce MCP Server for Netlify Functions",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "echo 'Build complete'",
+    "start": "node build/index.js",
+    "dev": "netlify dev",
+    "deploy": "netlify deploy",
+    "deploy:prod": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.4.0",
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "netlify-cli": "^17.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/techspawn/woocommerce-mcp-server.git"
+  },
+  "author": "techspawn"
+}
