@@ -39,20 +39,23 @@ npm run deploy:prod  # Deploy to production
 
 ## MCP Tool Categories
 
+### Tool Naming Convention
+**All tools use `fakt_` prefix** to prevent cache conflicts with other MCP servers and ensure unique naming.
+
 ### Invoices (Primary)
-- `get_invoices` (pagination: page, perPage), `get_invoice` (by ID)
-- `create_invoice`, `update_invoice`, `delete_invoice`
-- `send_invoice_by_email`, `change_invoice_status`, `get_invoice_pdf`
+- `fakt_get_invoices` (pagination: page, perPage), `fakt_get_invoice` (by ID)
+- `fakt_create_invoice`, `fakt_update_invoice`, `fakt_delete_invoice`
+- `fakt_send_invoice_by_email`, `fakt_change_invoice_status`, `fakt_get_invoice_pdf`
 
 ### Clients
-- `get_clients`, `get_client`, `create_client`, `update_client`, `delete_client`
+- `fakt_get_clients`, `fakt_get_client`, `fakt_create_client`, `fakt_update_client`, `fakt_delete_client`
 
 ### Products & Inventory
-- `get_products`, `get_product`, `create_product`, `update_product`
-- `get_categories`, `get_warehouses`, `get_departments`
+- `fakt_get_products`, `fakt_get_product`, `fakt_create_product`, `fakt_update_product`
+- `fakt_get_categories`, `fakt_get_warehouses`, `fakt_get_departments`
 
 ### Payments
-- `get_payments`, `get_payment`, `create_payment`, `update_payment`
+- `fakt_get_payments`, `fakt_get_payment`, `fakt_create_payment`, `fakt_update_payment`
 
 ## API Communication Pattern
 Fakturownia API uses subdomain-based endpoints:
@@ -68,7 +71,7 @@ const apiToken = params.api_token || DEFAULT_API_TOKEN;
   "id": "1", 
   "method": "tools/call",
   "params": {
-    "name": "get_invoices",
+    "name": "fakt_get_invoices",
     "arguments": {"page": 1, "perPage": 10}
   }
 }

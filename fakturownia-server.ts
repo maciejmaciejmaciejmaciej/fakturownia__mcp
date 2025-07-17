@@ -78,7 +78,7 @@ async function handleFakturowniaRequest(
     // Handle Fakturownia API methods
     switch (method) {
       // INVOICES
-      case "get_invoices":
+      case "fakt_get_invoices":
         const invoicesResponse = await client.get("/invoices.json", {
           params: {
             api_token: apiToken,
@@ -91,7 +91,7 @@ async function handleFakturowniaRequest(
         });
         return invoicesResponse.data;
 
-      case "get_invoice":
+      case "fakt_get_invoice":
         if (!params.invoiceId) {
           throw new Error("Invoice ID is required");
         }
@@ -105,7 +105,7 @@ async function handleFakturowniaRequest(
         );
         return invoiceResponse.data;
 
-      case "create_invoice":
+      case "fakt_create_invoice":
         if (!params.invoiceData) {
           throw new Error("Invoice data is required for creating an invoice");
         }
@@ -115,7 +115,7 @@ async function handleFakturowniaRequest(
         });
         return createInvoiceResponse.data;
 
-      case "update_invoice":
+      case "fakt_update_invoice":
         if (!params.invoiceId) {
           throw new Error("Invoice ID is required for updating an invoice");
         }
@@ -131,7 +131,7 @@ async function handleFakturowniaRequest(
         );
         return updateInvoiceResponse.data;
 
-      case "delete_invoice":
+      case "fakt_delete_invoice":
         if (!params.invoiceId) {
           throw new Error("Invoice ID is required for deleting an invoice");
         }
@@ -145,7 +145,7 @@ async function handleFakturowniaRequest(
         );
         return deleteInvoiceResponse.data;
 
-      case "send_invoice_by_email":
+      case "fakt_send_invoice_by_email":
         if (!params.invoiceId) {
           throw new Error("Invoice ID is required for sending by email");
         }
@@ -163,7 +163,7 @@ async function handleFakturowniaRequest(
         );
         return sendEmailResponse.data;
 
-      case "change_invoice_status":
+      case "fakt_change_invoice_status":
         if (!params.invoiceId) {
           throw new Error("Invoice ID is required for changing status");
         }
@@ -182,7 +182,7 @@ async function handleFakturowniaRequest(
         );
         return statusResponse.data;
 
-      case "get_invoice_pdf":
+      case "fakt_get_invoice_pdf":
         if (!params.invoiceId) {
           throw new Error("Invoice ID is required for getting PDF");
         }
@@ -201,7 +201,7 @@ async function handleFakturowniaRequest(
         };
 
       // CLIENTS
-      case "get_clients":
+      case "fakt_get_clients":
         const clientsResponse = await client.get("/clients.json", {
           params: {
             api_token: apiToken,
@@ -215,7 +215,7 @@ async function handleFakturowniaRequest(
         });
         return clientsResponse.data;
 
-      case "get_client":
+      case "fakt_get_client":
         if (!params.clientId) {
           throw new Error("Client ID is required");
         }
@@ -229,7 +229,7 @@ async function handleFakturowniaRequest(
         );
         return clientResponse.data;
 
-      case "create_client":
+      case "fakt_create_client":
         if (!params.clientData) {
           throw new Error("Client data is required for creating a client");
         }
@@ -239,7 +239,7 @@ async function handleFakturowniaRequest(
         });
         return createClientResponse.data;
 
-      case "update_client":
+      case "fakt_update_client":
         if (!params.clientId) {
           throw new Error("Client ID is required for updating a client");
         }
@@ -255,7 +255,7 @@ async function handleFakturowniaRequest(
         );
         return updateClientResponse.data;
 
-      case "delete_client":
+      case "fakt_delete_client":
         if (!params.clientId) {
           throw new Error("Client ID is required for deleting a client");
         }
@@ -270,7 +270,7 @@ async function handleFakturowniaRequest(
         return deleteClientResponse.data;
 
       // PRODUCTS
-      case "get_products":
+      case "fakt_get_products":
         const productsResponse = await client.get("/products.json", {
           params: {
             api_token: apiToken,
@@ -282,7 +282,7 @@ async function handleFakturowniaRequest(
         });
         return productsResponse.data;
 
-      case "get_product":
+      case "fakt_get_product":
         if (!params.productId) {
           throw new Error("Product ID is required");
         }
@@ -297,7 +297,7 @@ async function handleFakturowniaRequest(
         );
         return productResponse.data;
 
-      case "create_product":
+      case "fakt_create_product":
         if (!params.productData) {
           throw new Error("Product data is required for creating a product");
         }
@@ -307,7 +307,7 @@ async function handleFakturowniaRequest(
         });
         return createProductResponse.data;
 
-      case "update_product":
+      case "fakt_update_product":
         if (!params.productId) {
           throw new Error("Product ID is required for updating a product");
         }
@@ -324,7 +324,7 @@ async function handleFakturowniaRequest(
         return updateProductResponse.data;
 
       // PAYMENTS
-      case "get_payments":
+      case "fakt_get_payments":
         const paymentsResponse = await client.get("/banking/payments.json", {
           params: {
             api_token: apiToken,
@@ -336,7 +336,7 @@ async function handleFakturowniaRequest(
         });
         return paymentsResponse.data;
 
-      case "get_payment":
+      case "fakt_get_payment":
         if (!params.paymentId) {
           throw new Error("Payment ID is required");
         }
@@ -350,7 +350,7 @@ async function handleFakturowniaRequest(
         );
         return paymentResponse.data;
 
-      case "create_payment":
+      case "fakt_create_payment":
         if (!params.paymentData) {
           throw new Error("Payment data is required for creating a payment");
         }
@@ -363,7 +363,7 @@ async function handleFakturowniaRequest(
         );
         return createPaymentResponse.data;
 
-      case "update_payment":
+      case "fakt_update_payment":
         if (!params.paymentId) {
           throw new Error("Payment ID is required for updating a payment");
         }
@@ -379,7 +379,7 @@ async function handleFakturowniaRequest(
         );
         return updatePaymentResponse.data;
 
-      case "delete_payment":
+      case "fakt_delete_payment":
         if (!params.paymentId) {
           throw new Error("Payment ID is required for deleting a payment");
         }
@@ -394,7 +394,7 @@ async function handleFakturowniaRequest(
         return deletePaymentResponse.data;
 
       // CATEGORIES
-      case "get_categories":
+      case "fakt_get_categories":
         const categoriesResponse = await client.get("/categories.json", {
           params: {
             api_token: apiToken,
@@ -403,7 +403,7 @@ async function handleFakturowniaRequest(
         });
         return categoriesResponse.data;
 
-      case "get_category":
+      case "fakt_get_category":
         if (!params.categoryId) {
           throw new Error("Category ID is required");
         }
@@ -417,7 +417,7 @@ async function handleFakturowniaRequest(
         );
         return categoryResponse.data;
 
-      case "create_category":
+      case "fakt_create_category":
         if (!params.categoryData) {
           throw new Error("Category data is required for creating a category");
         }
@@ -427,7 +427,7 @@ async function handleFakturowniaRequest(
         });
         return createCategoryResponse.data;
 
-      case "update_category":
+      case "fakt_update_category":
         if (!params.categoryId) {
           throw new Error("Category ID is required for updating a category");
         }
@@ -443,7 +443,7 @@ async function handleFakturowniaRequest(
         );
         return updateCategoryResponse.data;
 
-      case "delete_category":
+      case "fakt_delete_category":
         if (!params.categoryId) {
           throw new Error("Category ID is required for deleting a category");
         }
@@ -458,7 +458,7 @@ async function handleFakturowniaRequest(
         return deleteCategoryResponse.data;
 
       // WAREHOUSES
-      case "get_warehouses":
+      case "fakt_get_warehouses":
         const warehousesResponse = await client.get("/warehouses.json", {
           params: {
             api_token: apiToken,
@@ -467,7 +467,7 @@ async function handleFakturowniaRequest(
         });
         return warehousesResponse.data;
 
-      case "get_warehouse":
+      case "fakt_get_warehouse":
         if (!params.warehouseId) {
           throw new Error("Warehouse ID is required");
         }
@@ -481,7 +481,7 @@ async function handleFakturowniaRequest(
         );
         return warehouseResponse.data;
 
-      case "create_warehouse":
+      case "fakt_create_warehouse":
         if (!params.warehouseData) {
           throw new Error(
             "Warehouse data is required for creating a warehouse"
@@ -493,7 +493,7 @@ async function handleFakturowniaRequest(
         });
         return createWarehouseResponse.data;
 
-      case "update_warehouse":
+      case "fakt_update_warehouse":
         if (!params.warehouseId) {
           throw new Error("Warehouse ID is required for updating a warehouse");
         }
@@ -511,7 +511,7 @@ async function handleFakturowniaRequest(
         );
         return updateWarehouseResponse.data;
 
-      case "delete_warehouse":
+      case "fakt_delete_warehouse":
         if (!params.warehouseId) {
           throw new Error("Warehouse ID is required for deleting a warehouse");
         }
@@ -526,7 +526,7 @@ async function handleFakturowniaRequest(
         return deleteWarehouseResponse.data;
 
       // WAREHOUSE DOCUMENTS
-      case "get_warehouse_documents":
+      case "fakt_get_warehouse_documents":
         const warehouseDocsResponse = await client.get(
           "/warehouse_documents.json",
           {
@@ -540,7 +540,7 @@ async function handleFakturowniaRequest(
         );
         return warehouseDocsResponse.data;
 
-      case "get_warehouse_document":
+      case "fakt_get_warehouse_document":
         if (!params.documentId) {
           throw new Error("Document ID is required");
         }
@@ -554,7 +554,7 @@ async function handleFakturowniaRequest(
         );
         return warehouseDocResponse.data;
 
-      case "create_warehouse_document":
+      case "fakt_create_warehouse_document":
         if (!params.documentData) {
           throw new Error(
             "Document data is required for creating a warehouse document"
@@ -569,7 +569,7 @@ async function handleFakturowniaRequest(
         );
         return createWarehouseDocResponse.data;
 
-      case "update_warehouse_document":
+      case "fakt_update_warehouse_document":
         if (!params.documentId) {
           throw new Error(
             "Document ID is required for updating a warehouse document"
@@ -589,7 +589,7 @@ async function handleFakturowniaRequest(
         );
         return updateWarehouseDocResponse.data;
 
-      case "delete_warehouse_document":
+      case "fakt_delete_warehouse_document":
         if (!params.documentId) {
           throw new Error(
             "Document ID is required for deleting a warehouse document"
@@ -606,7 +606,7 @@ async function handleFakturowniaRequest(
         return deleteWarehouseDocResponse.data;
 
       // DEPARTMENTS
-      case "get_departments":
+      case "fakt_get_departments":
         const departmentsResponse = await client.get("/departments.json", {
           params: {
             api_token: apiToken,
@@ -615,7 +615,7 @@ async function handleFakturowniaRequest(
         });
         return departmentsResponse.data;
 
-      case "get_department":
+      case "fakt_get_department":
         if (!params.departmentId) {
           throw new Error("Department ID is required");
         }
@@ -629,7 +629,7 @@ async function handleFakturowniaRequest(
         );
         return departmentResponse.data;
 
-      case "create_department":
+      case "fakt_create_department":
         if (!params.departmentData) {
           throw new Error(
             "Department data is required for creating a department"
@@ -644,7 +644,7 @@ async function handleFakturowniaRequest(
         );
         return createDepartmentResponse.data;
 
-      case "update_department":
+      case "fakt_update_department":
         if (!params.departmentId) {
           throw new Error(
             "Department ID is required for updating a department"
@@ -664,7 +664,7 @@ async function handleFakturowniaRequest(
         );
         return updateDepartmentResponse.data;
 
-      case "delete_department":
+      case "fakt_delete_department":
         if (!params.departmentId) {
           throw new Error(
             "Department ID is required for deleting a department"
@@ -802,7 +802,7 @@ export const handler: Handler = async (
             tools: [
               // Invoices
               {
-                name: "get_invoices",
+                name: "fakt_get_invoices",
                 description: "Get list of invoices from Fakturownia",
                 inputSchema: {
                   type: "object",
@@ -816,7 +816,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_invoice",
+                name: "fakt_get_invoice",
                 description: "Get single invoice by ID",
                 inputSchema: {
                   type: "object",
@@ -825,7 +825,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_invoice",
+                name: "fakt_create_invoice",
                 description: "Create new invoice",
                 inputSchema: {
                   type: "object",
@@ -834,7 +834,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_invoice",
+                name: "fakt_update_invoice",
                 description: "Update existing invoice",
                 inputSchema: {
                   type: "object",
@@ -846,7 +846,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_invoice",
+                name: "fakt_delete_invoice",
                 description: "Delete invoice",
                 inputSchema: {
                   type: "object",
@@ -855,7 +855,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "send_invoice_by_email",
+                name: "fakt_send_invoice_by_email",
                 description: "Send invoice by email to client",
                 inputSchema: {
                   type: "object",
@@ -869,7 +869,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "change_invoice_status",
+                name: "fakt_change_invoice_status",
                 description: "Change invoice status",
                 inputSchema: {
                   type: "object",
@@ -881,7 +881,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_invoice_pdf",
+                name: "fakt_get_invoice_pdf",
                 description: "Get invoice PDF file",
                 inputSchema: {
                   type: "object",
@@ -892,7 +892,7 @@ export const handler: Handler = async (
 
               // Clients
               {
-                name: "get_clients",
+                name: "fakt_get_clients",
                 description: "Get list of clients",
                 inputSchema: {
                   type: "object",
@@ -907,7 +907,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_client",
+                name: "fakt_get_client",
                 description: "Get single client by ID",
                 inputSchema: {
                   type: "object",
@@ -916,7 +916,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_client",
+                name: "fakt_create_client",
                 description: "Create new client",
                 inputSchema: {
                   type: "object",
@@ -925,7 +925,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_client",
+                name: "fakt_update_client",
                 description: "Update existing client",
                 inputSchema: {
                   type: "object",
@@ -937,7 +937,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_client",
+                name: "fakt_delete_client",
                 description: "Delete client",
                 inputSchema: {
                   type: "object",
@@ -948,7 +948,7 @@ export const handler: Handler = async (
 
               // Products
               {
-                name: "get_products",
+                name: "fakt_get_products",
                 description: "Get list of products",
                 inputSchema: {
                   type: "object",
@@ -961,7 +961,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_product",
+                name: "fakt_get_product",
                 description: "Get single product by ID",
                 inputSchema: {
                   type: "object",
@@ -973,7 +973,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_product",
+                name: "fakt_create_product",
                 description: "Create new product",
                 inputSchema: {
                   type: "object",
@@ -982,7 +982,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_product",
+                name: "fakt_update_product",
                 description: "Update existing product",
                 inputSchema: {
                   type: "object",
@@ -996,7 +996,7 @@ export const handler: Handler = async (
 
               // Payments
               {
-                name: "get_payments",
+                name: "fakt_get_payments",
                 description: "Get list of payments",
                 inputSchema: {
                   type: "object",
@@ -1009,7 +1009,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_payment",
+                name: "fakt_get_payment",
                 description: "Get single payment by ID",
                 inputSchema: {
                   type: "object",
@@ -1018,7 +1018,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_payment",
+                name: "fakt_create_payment",
                 description: "Create new payment",
                 inputSchema: {
                   type: "object",
@@ -1027,7 +1027,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_payment",
+                name: "fakt_update_payment",
                 description: "Update existing payment",
                 inputSchema: {
                   type: "object",
@@ -1039,7 +1039,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_payment",
+                name: "fakt_delete_payment",
                 description: "Delete payment",
                 inputSchema: {
                   type: "object",
@@ -1050,7 +1050,7 @@ export const handler: Handler = async (
 
               // Categories
               {
-                name: "get_categories",
+                name: "fakt_get_categories",
                 description: "Get list of categories",
                 inputSchema: {
                   type: "object",
@@ -1058,7 +1058,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_category",
+                name: "fakt_get_category",
                 description: "Get single category by ID",
                 inputSchema: {
                   type: "object",
@@ -1067,7 +1067,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_category",
+                name: "fakt_create_category",
                 description: "Create new category",
                 inputSchema: {
                   type: "object",
@@ -1076,7 +1076,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_category",
+                name: "fakt_update_category",
                 description: "Update existing category",
                 inputSchema: {
                   type: "object",
@@ -1088,7 +1088,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_category",
+                name: "fakt_delete_category",
                 description: "Delete category",
                 inputSchema: {
                   type: "object",
@@ -1099,7 +1099,7 @@ export const handler: Handler = async (
 
               // Warehouses
               {
-                name: "get_warehouses",
+                name: "fakt_get_warehouses",
                 description: "Get list of warehouses",
                 inputSchema: {
                   type: "object",
@@ -1107,7 +1107,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_warehouse",
+                name: "fakt_get_warehouse",
                 description: "Get single warehouse by ID",
                 inputSchema: {
                   type: "object",
@@ -1116,7 +1116,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_warehouse",
+                name: "fakt_create_warehouse",
                 description: "Create new warehouse",
                 inputSchema: {
                   type: "object",
@@ -1125,7 +1125,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_warehouse",
+                name: "fakt_update_warehouse",
                 description: "Update existing warehouse",
                 inputSchema: {
                   type: "object",
@@ -1137,7 +1137,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_warehouse",
+                name: "fakt_delete_warehouse",
                 description: "Delete warehouse",
                 inputSchema: {
                   type: "object",
@@ -1148,7 +1148,7 @@ export const handler: Handler = async (
 
               // Warehouse Documents
               {
-                name: "get_warehouse_documents",
+                name: "fakt_get_warehouse_documents",
                 description: "Get list of warehouse documents",
                 inputSchema: {
                   type: "object",
@@ -1160,7 +1160,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_warehouse_document",
+                name: "fakt_get_warehouse_document",
                 description: "Get single warehouse document by ID",
                 inputSchema: {
                   type: "object",
@@ -1169,7 +1169,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_warehouse_document",
+                name: "fakt_create_warehouse_document",
                 description: "Create new warehouse document",
                 inputSchema: {
                   type: "object",
@@ -1178,7 +1178,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_warehouse_document",
+                name: "fakt_update_warehouse_document",
                 description: "Update existing warehouse document",
                 inputSchema: {
                   type: "object",
@@ -1190,7 +1190,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_warehouse_document",
+                name: "fakt_delete_warehouse_document",
                 description: "Delete warehouse document",
                 inputSchema: {
                   type: "object",
@@ -1201,7 +1201,7 @@ export const handler: Handler = async (
 
               // Departments
               {
-                name: "get_departments",
+                name: "fakt_get_departments",
                 description: "Get list of departments",
                 inputSchema: {
                   type: "object",
@@ -1209,7 +1209,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "get_department",
+                name: "fakt_get_department",
                 description: "Get single department by ID",
                 inputSchema: {
                   type: "object",
@@ -1218,7 +1218,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "create_department",
+                name: "fakt_create_department",
                 description: "Create new department",
                 inputSchema: {
                   type: "object",
@@ -1227,7 +1227,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "update_department",
+                name: "fakt_update_department",
                 description: "Update existing department",
                 inputSchema: {
                   type: "object",
@@ -1239,7 +1239,7 @@ export const handler: Handler = async (
                 },
               },
               {
-                name: "delete_department",
+                name: "fakt_delete_department",
                 description: "Delete department",
                 inputSchema: {
                   type: "object",
