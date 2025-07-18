@@ -11,16 +11,7 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-[[redirects]]
-  from = "/mcp"
-  to = "/.netlify/functions/mcp-server"
-  status = 200
-
-[[redirects]]
-  from = "/mcp/*"
-  to = "/.netlify/functions/mcp-server"
-  status = 200
-
+# Fakturownia MCP Server Routes - Wszystkie funkcje
 [[redirects]]
   from = "/fakturownia"
   to = "/.netlify/functions/fakturownia-server"
@@ -28,6 +19,83 @@
 
 [[redirects]]
   from = "/fakturownia/*"
+  to = "/.netlify/functions/fakturownia-server"
+  status = 200
+
+# Fakturownia MCP Server Routes - Tylko faktury
+[[redirects]]
+  from = "/fakturownia/invoices"
+  to = "/.netlify/functions/fakturownia-invoices"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/invoices/*"
+  to = "/.netlify/functions/fakturownia-invoices"
+  status = 200
+
+# Fakturownia MCP Server Routes - Tylko klienci
+[[redirects]]
+  from = "/fakturownia/clients"
+  to = "/.netlify/functions/fakturownia-clients"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/clients/*"
+  to = "/.netlify/functions/fakturownia-clients"
+  status = 200
+
+# Fakturownia MCP Server Routes - Tylko produkty
+[[redirects]]
+  from = "/fakturownia/products"
+  to = "/.netlify/functions/fakturownia-products"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/products/*"
+  to = "/.netlify/functions/fakturownia-products"
+  status = 200
+
+# Fakturownia MCP Server Routes - Tylko płatności
+[[redirects]]
+  from = "/fakturownia/payments"
+  to = "/.netlify/functions/fakturownia-payments"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/payments/*"
+  to = "/.netlify/functions/fakturownia-payments"
+  status = 200
+
+# Fakturownia MCP Server Routes - Tylko kategorie
+[[redirects]]
+  from = "/fakturownia/categories"
+  to = "/.netlify/functions/fakturownia-categories"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/categories/*"
+  to = "/.netlify/functions/fakturownia-categories"
+  status = 200
+
+# Fakturownia MCP Server Routes - Tylko działy
+[[redirects]]
+  from = "/fakturownia/departments"
+  to = "/.netlify/functions/fakturownia-departments"
+  status = 200
+
+[[redirects]]
+  from = "/fakturownia/departments/*"
+  to = "/.netlify/functions/fakturownia-departments"
+  status = 200
+
+# Legacy MCP route (redirects to main Fakturownia)
+[[redirects]]
+  from = "/mcp"
+  to = "/.netlify/functions/fakturownia-server"
+  status = 200
+
+[[redirects]]
+  from = "/mcp/*"
   to = "/.netlify/functions/fakturownia-server"
   status = 200
 

@@ -1,57 +1,23 @@
-import { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
-import axios from "axios";
+// USUNIĘTE - Ten plik został usunięty z projektu Fakturownia MCP
+// Tylko Fakturownia.pl jest obsługiwana w tym projekcie
+// Wszystkie funkcje WooCommerce zostały usunięte
 
-interface JsonRpcRequest {
-  jsonrpc: "2.0";
-  id: string | number;
-  method: string;
-  params?: any;
-}
+// Używaj fakturownia-server.ts zamiast tego pliku
+export default {};
 
-interface JsonRpcResponse {
-  jsonrpc: "2.0";
-  id: string | number;
-  result?: any;
-  error?: {
-    code: number;
-    message: string;
-    data?: any;
+// Export pusty handler żeby nie było błędów w woocommerce-server.ts
+export const handler = async () => {
+  return {
+    statusCode: 410,
+    body: JSON.stringify({
+      error: "WooCommerce server został usunięty. Używaj /fakturownia"
+    })
   };
-}
+};ik został usunięty z projektu Fakturownia MCP
+// Tylko Fakturownia.pl jest obsługiwana w tym projekcie
+// Wszystkie funkcje WooCommerce zostały usunięte
 
-interface WordPressError {
-  message: string;
-  code?: string;
-}
-
-interface WooMetaData {
-  id?: number;
-  key: string;
-  value: any;
-}
-
-type AxiosError = {
-  response?: {
-    data?: WordPressError;
-  };
-  message: string;
-};
-
-const isAxiosError = (error: unknown): error is AxiosError => {
-  return (
-    error !== null &&
-    typeof error === "object" &&
-    "message" in error &&
-    (error as any).response !== undefined
-  );
-};
-
-// Get WordPress credentials from environment variables
-const DEFAULT_SITE_URL = process.env.WORDPRESS_SITE_URL || "";
-const DEFAULT_USERNAME = process.env.WORDPRESS_USERNAME || "";
-const DEFAULT_PASSWORD = process.env.WORDPRESS_PASSWORD || "";
-const DEFAULT_CONSUMER_KEY = process.env.WOOCOMMERCE_CONSUMER_KEY || "";
-const DEFAULT_CONSUMER_SECRET = process.env.WOOCOMMERCE_CONSUMER_SECRET || "";
+console.log("Ten plik nie jest już używany - używaj fakturownia-server.ts");
 
 async function handleWooCommerceRequest(
   method: string,

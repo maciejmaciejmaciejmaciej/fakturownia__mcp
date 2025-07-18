@@ -1,10 +1,10 @@
 {
-  "name": "woocommerce-mcp-server",
+  "name": "fakturownia-mcp-server",
   "version": "1.0.0",
-  "description": "WooCommerce MCP Server for Netlify Functions",
+  "description": "Fakturownia.pl MCP Server for Netlify Functions",
   "main": "build/index.js",
   "scripts": {
-    "build": "echo 'Build complete'",
+    "build": "echo 'Fakturownia MCP Build complete'",
     "start": "node build/index.js",
     "dev": "netlify dev",
     "deploy": "netlify deploy",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/techspawn/woocommerce-mcp-server.git"
+    "url": "https://github.com/maciejmaciejmaciejmaciej/fakturownia__mcp.git"
   },
-  "author": "techspawn"
+  "author": "maciejmaciejmaciejmaciej"
 }
